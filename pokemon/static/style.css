@@ -1,7 +1,46 @@
+section{
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+}
+img{
+    width: 100%;
+}
+
+.fs-h{
+    min-height: 100vh;
+}
+.logo{
+    width: 40vw;
+}
+
+.start{
+    background-color: navy;
+    color:white;
+    font-size: 32px;
+    box-shadow: 2px 2px white;
+    border: none;
+    transition: ease-in-out 0.5s;
+}
+.start:hover{
+    transform:scale(1.1);
+    box-shadow: 2px 2px blue;
+    border:none;
+    transition: ease-in-out 0.5s;
+}
+
 .box{
-    background-image: url('../images/Charazard.jpg'); /* Replace with your image path */
+    background-image: url('/static/images/Charazard.jp\g'); /* Replace with your image path */
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
     min-height: 100vh; /* Ensures it covers the full height of the viewport */
+}
+
+/* test code */
+.one{
+    background-color: red;
+}
+.two{
+    background-color: blue;
 }
