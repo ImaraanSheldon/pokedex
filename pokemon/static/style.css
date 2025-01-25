@@ -1,17 +1,27 @@
+/* Universal Css */
+
 section{
     min-width: 100vw;
     min-height: 100vh;
     overflow: hidden;
+    /* Whenever we do a new page we put everything inside the html a section...don't try and be special, please <3 */
 }
 img{
     width: 100%;
+    /* keeps image ratio stable without scale */
 }
 
 .fs-h{
     min-height: 100vh;
+    /* fs-h(FullScreen-Height will be used for when a object requires...well FullScreen-Height) */
 }
+
+/* Universal Css End */
+
+/* Landing Css */
 .logo{
     width: 40vw;
+    /* POKEDEX Compass and yes, you do still need to size your images */
 }
 
 .start{
@@ -37,10 +47,48 @@ img{
     min-height: 100vh; /* Ensures it covers the full height of the viewport */
 }
 
+/* Landing Css End */
+
+/* Firelies for the landing DON'T TOUCH THIS CODE */
+.firefly {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    background: rgba(255, 255, 0, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.4);
+    animation: fly 16s infinite linear;
+    opacity: 0.5;
+}
+
+@keyframes fly {
+    0% {
+        transform: translate3d(-15vw, -15vh, 0);
+        opacity: 0.5;
+    }
+    25%{
+        opacity: 0.75;
+    }
+    50% {
+        opacity: 1;
+    }
+    75{
+        opacity: 0.75;
+    }
+    100% {
+        transform: translate3d(calc(100vw * var(--x)), calc(100vh * var(--y)), 0);
+        opacity: 0.5;
+    }
+}
+
+
+
 /* test code */
-.one{
+/* .one{
     background-color: red;
 }
 .two{
     background-color: blue;
-}
+} */
