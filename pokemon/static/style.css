@@ -23,7 +23,6 @@ img{
     width: 40vw;
     /* POKEDEX Compass and yes, you do still need to size your images */
 }
-
 .start{
     background-color: navy;
     color:white;
@@ -48,6 +47,12 @@ img{
 }
 
 /* Landing Css End */
+
+/* Nav Css */
+.pokeball_logo{
+    width: 40px;
+}
+/* Nav Css End*/
 
 /* Firelies for the landing DON'T TOUCH THIS CODE */
 .firefly {
