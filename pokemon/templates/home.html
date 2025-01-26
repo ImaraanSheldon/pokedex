@@ -4,5 +4,26 @@
 
 
 {% block content %}
+<!-- Don't put any images within the same div inside columns, they will feel very uncomfortable. -->
+<div class="counter row">
+    <div class="col-2 text-start mt-3 d-flex align items baseline">
+        <div>
+            <img class="pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
+        </div>
+        <div>
+            <p>100</p>
+        </div>
+    </div>
+    <div class="col-2 text-start mt-3">
+        <img class="pokebattle_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokebattle.png">
+    </div>
+    <div class="col-8 text-end mt-1">
+        <a href="/"><img class="back_btn" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/back.png" alt="back"></a>
+    </div>
+</div>
+
+<div class="books">
+    5
+</div>
 {% endblock %}
 

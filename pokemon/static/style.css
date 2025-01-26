@@ -39,7 +39,7 @@ img{
 }
 
 .box{
-    background-image: url('/static/images/Charazard.jp\g'); /* Replace with your image path */
+    background-image: url('/static/images/Charazard.jpg'); /* Replace with your image path */
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
@@ -49,10 +49,60 @@ img{
 /* Landing Css End */
 
 /* Nav Css */
+.navi{
+    max-height: 8vh;
+    min-width: 100vw;
+    overflow: hidden;
+    background-color: #FFF6DF;
+}
 .pokeball_logo{
-    width: 40px;
+    width: 32px;
+}
+.back_btn{
+    width: 120px;
+}
+.footer{
+    position: relative;
+    max-height: 9vh;
+    max-width: 100vw;
+    /* overflow: hidden; */
+    background-color:#FFF6DF;
+}
+.gif-container {
+    position: absolute;
+    transform: translateY(-50%);
+    width: 0; /* Adjust based on your GIF size */
+    background-color:#FFF6DF;
+    /* will need a z-index later, trust me */
+}
+
+.gif-container img {
+    margin-top: 9vh;
+    display: block;
+    width: 9vh;
+    transform: scaleX(1); /* Default orientation */
+    transition: transform 0.3s ease;
 }
 /* Nav Css End*/
+
+/* Home Css */
+.counter{
+    max-height: 8vh;
+    min-width: 100vw;
+    overflow: hidden;
+    background-color:#1F2839;
+}
+.pokebattle_logo{
+    width: 40px;
+}
+
+.books{
+    min-height: 75vh;
+    min-width: 100vw;
+    overflow: hidden;
+    background-color:#C27662;
+}
+/* Home Css End */
 
 /* Firelies for the landing DON'T TOUCH THIS CODE */
 .firefly {
@@ -79,7 +129,7 @@ img{
     50% {
         opacity: 1;
     }
-    75{
+    75%{
         opacity: 0.75;
     }
     100% {
@@ -87,13 +137,3 @@ img{
         opacity: 0.5;
     }
 }
-
-
-
-/* test code */
-/* .one{
-    background-color: red;
-}
-.two{
-    background-color: blue;
-} */

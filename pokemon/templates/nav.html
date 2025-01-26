@@ -14,15 +14,26 @@
 </head>
 <body>
     <section>
-        <nav class="bg-body-tertiary">
-            <div class="d-flex flex-row justify-content-between">
-                <img class="navbar-brand pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
-                <img class="navbar-brand pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
-                <a href="#">exit</a>    
+        <div class="navi row">
+                <div class="col-4 text-start mt-3">
+                    <img class="pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
+                </div>
+                <div class="col-4 text-center mt-3">
+                    <img class="pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
+                </div>
+                <div class="col-4 text-end mt-1">
+                    <a href="/"><img class="back_btn" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/back.png" alt="back"></a>
+                </div>
+        </div>
+        {% block content%}{% endblock %}
+
+        <div class="footer" id="footer_id">
+            <div class="gif-container" id="gifContainer">
+                <img src="/static/images/Chespin.gif" alt="Moving GIF">
             </div>
-          </nav>
+            <script src="{{ url_for('static', filename='js/animation.js') }}"></script>
+        </div>
     </section>
 
-    {% block content%}{% endblock %}
 </body>
 </html>
