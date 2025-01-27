@@ -1,139 +1,148 @@
 /* Universal Css */
 
-section{
-    min-width: 100vw;
-    min-height: 100vh;
-    overflow: hidden;
-    /* Whenever we do a new page we put everything inside the html a section...don't try and be special, please <3 */
+section {
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  /* Whenever we do a new page we put everything inside the html a section...don't try and be special, please <3 */
 }
-img{
-    width: 100%;
-    /* keeps image ratio stable without scale */
+img {
+  width: 100%;
+  /* keeps image ratio stable without scale */
 }
 
-.fs-h{
-    min-height: 100vh;
-    /* fs-h(FullScreen-Height will be used for when a object requires...well FullScreen-Height) */
+.fs-h {
+  min-height: 100vh;
+  /* fs-h(FullScreen-Height will be used for when a object requires...well FullScreen-Height) */
 }
 
 /* Universal Css End */
 
 /* Landing Css */
-.logo{
-    width: 40vw;
-    /* POKEDEX Compass and yes, you do still need to size your images */
+.logo {
+  width: 40vw;
+  /* POKEDEX Compass and yes, you do still need to size your images */
 }
-.start{
-    background-color: navy;
-    color:white;
-    font-size: 32px;
-    box-shadow: 2px 2px white;
-    border: none;
-    transition: ease-in-out 0.5s;
+.start {
+  background-color: navy;
+  color: white;
+  font-size: 32px;
+  box-shadow: 2px 2px white;
+  border: none;
+  transition: ease-in-out 0.5s;
 }
-.start:hover{
-    transform:scale(1.1);
-    box-shadow: 2px 2px blue;
-    border:none;
-    transition: ease-in-out 0.5s;
+.start:hover {
+  transform: scale(1.1);
+  box-shadow: 2px 2px blue;
+  border: none;
+  transition: ease-in-out 0.5s;
 }
 
-.box{
-    background-image: url('https://imaraansheldon.github.io/Pokemon/Pokemon_Images/landingbg.jpg'); /* Replace with your image path */
-    background-size: cover; /* Ensures the image covers the entire container */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents tiling */
-    min-height: 100vh; /* Ensures it covers the full height of the viewport */
+.box {
+  background-image: url("https://imaraansheldon.github.io/Pokemon/Pokemon_Images/landingbg.jpg"); /* Replace with your image path */
+  background-size: cover; /* Ensures the image covers the entire container */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+  min-height: 100vh; /* Ensures it covers the full height of the viewport */
 }
 
 /* Landing Css End */
 
 /* Nav Css */
-.navi{
-    max-height: 8vh;
-    min-width: 100vw;
-    overflow: hidden;
-    background-color: #FFF6DF;
+.navi {
+  max-height: 8vh;
+  min-width: 100vw;
+  overflow: hidden;
+  background-color: #fff6df;
 }
-.pokeball_logo{
-    width: 32px;
+.pokeball_logo {
+  width: 32px;
 }
-.back_btn{
-    width: 120px;
+.back_btn {
+  width: 120px;
 }
-.footer{
-    position: relative;
-    max-height: 9vh;
-    max-width: 100vw;
-    /* overflow: hidden; */
-    background-color:#FFF6DF;
+.footer {
+  position: relative;
+  max-height: 9vh;
+  max-width: 100vw;
+  /* overflow: hidden; */
+  background-color: #fff6df;
 }
 .gif-container {
-    position: absolute;
-    transform: translateY(-50%);
-    width: 0; /* Adjust based on your GIF size */
-    background-color:#FFF6DF;
-    /* will need a z-index later, trust me */
+  position: absolute;
+  transform: translateY(-50%);
+  width: 0; /* Adjust based on your GIF size */
+  background-color: #fff6df;
+  /* will need a z-index later, trust me */
 }
 
 .gif-container img {
-    margin-top: 9vh;
-    display: block;
-    width: 9vh;
-    transform: scaleX(1); /* Default orientation */
-    transition: transform 0.3s ease;
+  margin-top: 9vh;
+  display: block;
+  width: 9vh;
+  transform: scaleX(1); /* Default orientation */
+  transition: transform 0.3s ease;
 }
 /* Nav Css End*/
 
 /* Home Css */
-.counter{
-    max-height: 8vh;
-    min-width: 100vw;
-    overflow: hidden;
-    background-color:#1F2839;
+.counter {
+  max-height: 8vh;
+  min-width: 100vw;
+  overflow: hidden;
+  background-color: #1f2839;
 }
-.pokebattle_logo{
-    width: 40px;
+.pokebattle_logo {
+  width: 40px;
 }
 
-.books{
-    min-height: 75vh;
-    min-width: 100vw;
-    overflow: hidden;
-    background-color:#C27662;
+.books {
+  min-height: 75vh;
+  min-width: 100vw;
+  overflow: hidden;
+  background-color: #c27662;
 }
 /* Home Css End */
 
+/* New CSS */
+.statistics {
+  min-height: 75vh;
+  min-width: 100vw;
+  overflow: hidden;
+  background-color: #c27662;
+}
+/* New CSS End */
+
 /* Firelies for the landing DON'T TOUCH THIS CODE */
 .firefly {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 16px;
-    height: 16px;
-    background: rgba(255, 255, 0, 0.5);
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.4);
-    animation: fly 16s infinite linear;
-    opacity: 0.5;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 0, 0.5);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 255, 0, 0.8), 0 0 30px rgba(255, 255, 0, 0.4);
+  animation: fly 16s infinite linear;
+  opacity: 0.5;
 }
 
 @keyframes fly {
-    0% {
-        transform: translate3d(-15vw, -15vh, 0);
-        opacity: 0.5;
-    }
-    25%{
-        opacity: 0.75;
-    }
-    50% {
-        opacity: 1;
-    }
-    75%{
-        opacity: 0.75;
-    }
-    100% {
-        transform: translate3d(calc(100vw * var(--x)), calc(100vh * var(--y)), 0);
-        opacity: 0.5;
-    }
+  0% {
+    transform: translate3d(-15vw, -15vh, 0);
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(calc(100vw * var(--x)), calc(100vh * var(--y)), 0);
+    opacity: 0.5;
+  }
 }
