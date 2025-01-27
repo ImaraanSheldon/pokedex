@@ -39,7 +39,7 @@ img{
 }
 
 .box{
-    background-image: url('/static/images/Charazard.jpg'); /* Replace with your image path */
+    background-image: url('https://imaraansheldon.github.io/Pokemon/Pokemon_Images/landingbg.jpg'); /* Replace with your image path */
     background-size: cover; /* Ensures the image covers the entire container */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents tiling */
