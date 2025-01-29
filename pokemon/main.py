@@ -8,27 +8,42 @@ print("mysql.connector imported successfully!")
 app = Flask(__name__)
 
 # database config
-db_config = {
-    'user': 'u4obdnrv7pxpyo8q',
-    'password': 'tQshayXuxd5zxZcOtfcm',
-    'host': 'b93jnnaq9y3ti1rnvjgc-mysql.services.clever-cloud.com',  # e.g., b1n2o3f4.clever-cloud.com
-    'database': 'b93jnnaq9y3ti1rnvjgc',
-    'port': '3306'
-}
-
-# Establish a database connection
 def get_db_connection():
-    connection = mysql.connector.connect(**db_config)
-    return connection
+    return mysql.connector.connect(
+        user = 'u4obdnrv7pxpyo8q',
+        password = 'tQshayXuxd5zxZcOtfcm',
+        host = 'b93jnnaq9y3ti1rnvjgc-mysql.services.clever-cloud.com',  # e.g., b1n2o3f4.clever-cloud.com
+        database = 'b93jnnaq9y3ti1rnvjgc'
+    )
+    
+@app.route('/pokeData')
+def index():
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)  # Set dictionary=True to return rows as dictionaries
+    cursor.execute('SELECT * FROM pokemon')
+    pokemon = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return render_template('pokeData.html', pokemon = pokemon)
 
 @app.route("/")
 def landing():
     return render_template("index.html")
 
+@app.route("/signUp")
+def signUp():
+    return render_template("signUp.html")
 
-@app.route("/home.html/")
+
+@app.route("/home/")
 def home():
-    return render_template("home.html")
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)  # Set dictionary=True to return rows as dictionaries
+    cursor.execute('SELECT * FROM pokemon')
+    pokemon = cursor.fetchall()
+    cursor.close()
+    conn.close()
+    return render_template("home.html", pokemon = pokemon)
     
 @app.route("/new.html/")
 def new():

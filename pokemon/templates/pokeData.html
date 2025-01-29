@@ -1,0 +1,28 @@
+{% extends "nav.html" %}
+
+{% block title  %}rahhh{% endblock  %}
+
+
+{% block content  %}
+<div class="section">
+    <h2 class="mb-4">Users List</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for x in pokemon %}
+            <tr>
+                <td>{{ x.entryNo }}</td>  <!-- This will display the index number in each row -->
+                <td>{{ x.name }}</td>     <!-- user[1] is the username in the tuple -->
+                <td>{{ x.descr }}</td>     <!-- user[2] is the email in the tuple -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock  %}

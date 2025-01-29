@@ -1,5 +1,11 @@
 /* Universal Css */
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  ::-webkit-scrollbar {
+    display: none;
+}
 
+}
 section {
   min-width: 100vw;
   min-height: 100vh;
@@ -21,21 +27,30 @@ img {
 /* Landing Css */
 .logo {
   width: 40vw;
+  opacity: 0.8;
   /* POKEDEX Compass and yes, you do still need to size your images */
 }
 .start {
-  background-color: navy;
-  color: white;
+  background-color: #1F2839;
+  padding: 100px, 0px;
   font-size: 32px;
   box-shadow: 2px 2px white;
   border: none;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.25s;
 }
 .start:hover {
   transform: scale(1.1);
   box-shadow: 2px 2px blue;
   border: none;
-  transition: ease-in-out 0.5s;
+  transition: ease-in-out 0.25s;
+}
+.start a{
+  text-decoration: none;
+  color: #CDF145;
+}
+.sign_up{
+  text-decoration: none;
+  color: white;
 }
 
 .box {
@@ -97,10 +112,29 @@ img {
 }
 
 .books {
-  min-height: 75vh;
-  min-width: 100vw;
-  overflow: hidden;
+  max-height: 75vh;
+  max-width: 100vw;
+  overflow-y: hidden;
+  overflow-x: auto;
   background-color: #c27662;
+
+}
+.book-size{
+  margin-top: 5vh;
+  height: 60vh;
+  min-width:100px;
+  margin-right: 25px;
+  background-color: #B7B398;
+}
+.ori{
+  writing-mode: vertical-rl;
+    text-orientation: mixed;
+}
+.dex{
+  width: 64px;
+}
+.dex-color{
+  background-color: red;
 }
 /* Home Css End */
 
