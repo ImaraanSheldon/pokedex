@@ -23,16 +23,16 @@
 <div class="books">
     <div class="d-flex">
         {% for x in pokemon %}
-        <a href="{{url_for('home')}}" class="book-link">
-            <div class="d-flex flex-column justify-content-around align-items-center book-size">
-                <div class="dex-color rounded-circle justify-self-start">
-                    <img class="dex" src="{{x.image}}" alt="">
-                </div>
-                <p class="ori">{{x.name}}</p>
-                <p>{{x.entryNo}}</p>
-            </div>
-        </a>
-                {% endfor %}
+      <a href="{{ url_for('pokemon', name=x.name) }}" class="book-link">
+          <div class="d-flex flex-column justify-content-around align-items-center book-size">
+              <div class="dex-color rounded-circle justify-self-start">
+                  <img class="dex" src="{{x.image}}" alt="">
+              </div>
+              <p class="ori">{{x.name}}</p>
+              <p>{{x.entryNo}}</p>
+          </div>
+      </a>
+      {% endfor %}
     </div>
 
     <div class="holder"></div>

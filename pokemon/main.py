@@ -194,6 +194,24 @@ def delete_account():
         return redirect(url_for('profile'))
     
 
+@app.route('/pokemon/<name>')
+def pokemon(name):
+    # Connect to the database
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    # Fetch Pokémon data
+    cursor.execute('SELECT * FROM pokemon WHERE name = %s', (name,))
+    pokemon = cursor.fetchone()
+    
+    cursor.close()
+    conn.close()
+    
+    # Check if Pokémon exists
+    if not pokemon:
+        return "Pokémon not found", 404
+    
+    return render_template('singular.html', pokemon=pokemon)
 
 
 if __name__ == "__main__":
