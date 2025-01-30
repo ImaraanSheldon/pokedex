@@ -4,7 +4,6 @@
   ::-webkit-scrollbar {
     display: none;
 }
-
 }
 section {
   min-width: 100vw;
@@ -39,8 +38,8 @@ img {
   transition: ease-in-out 0.25s;
 }
 .start:hover {
-  transform: scale(1.1);
-  box-shadow: 2px 2px blue;
+  transform: scale(1.05);
+  /* box-shadow: 2px 2px blue; */
   border: none;
   transition: ease-in-out 0.25s;
 }
@@ -121,14 +120,26 @@ img {
 }
 .book-size{
   margin-top: 5vh;
-  height: 60vh;
+  height: 55vh;
+  margin-bottom: 10vh;
   min-width:100px;
-  margin-right: 25px;
+  margin-right: 15px;
+  margin-left: 15px;
   background-color: #B7B398;
+  transition: ease-in-out 0.2;
+}
+.book-size:hover{
+  scale: 1.05;
+  transition: ease-in-out 0.2;
+}
+.book-link{
+  text-decoration: none;
 }
 .ori{
   writing-mode: vertical-rl;
     text-orientation: mixed;
+    font-size: 32px;
+    max-height:150px;
 }
 .dex{
   width: 64px;

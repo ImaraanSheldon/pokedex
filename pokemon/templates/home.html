@@ -10,9 +10,7 @@
         <div>
             <img class="pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
         </div>
-        <div>
-            <p>100</p>
-        </div>
+       <p>1</p>
     </div>
     <div class="col-2 text-start mt-3">
         <img class="pokebattle_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokebattle.png">
@@ -25,20 +23,22 @@
 <div class="books">
     <div class="d-flex">
         {% for x in pokemon %}
-            <div class="d-flex flex-column justify-content-center align-items-center book-size">
+        <a href="{{url_for('home')}}" class="book-link">
+            <div class="d-flex flex-column justify-content-around align-items-center book-size">
                 <div class="dex-color rounded-circle justify-self-start">
                     <img class="dex" src="{{x.image}}" alt="">
                 </div>
                 <p class="ori">{{x.name}}</p>
                 <p>{{x.entryNo}}</p>
             </div>
+        </a>
                 {% endfor %}
     </div>
 
     <div class="holder"></div>
 
     <div>
-        <button class="">button</button>
+        <button class="position-fixed">button</button>
     </div>
 </div>
 {% endblock %}
