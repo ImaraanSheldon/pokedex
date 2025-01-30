@@ -5,18 +5,11 @@
 
 {% block content %}
 <!-- Don't put any images within the same div inside columns, they will feel very uncomfortable. -->
-<div class="counter row">
-    <div class="col-2 text-start mt-3 d-flex align items baseline">
-        <div>
-            <img class="pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
-        </div>
-       <p>1</p>
-    </div>
-    <div class="col-2 text-start mt-3">
-        <img class="pokebattle_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokebattle.png">
-    </div>
-    <div class="col-8 text-end mt-1">
-        <a href="{{url_for('new')}}"><img class="back_btnOne" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/backOne.png" alt="back"></a>
+<div class="counter">
+    <div class="random position-sticky start fw-bold px-5 mb-5 text-center" style="top: 10px;">
+        <a href="{{ url_for('random_pokemon') }}">
+            Random Pokémon
+        </a>
     </div>
 </div>
 
@@ -34,15 +27,7 @@
       </a>
       {% endfor %}
     </div>
-
-    <div class="holder"></div>
-
-    <div>
-        <a href="{{ url_for('random_pokemon') }}">
-          <button class="position-fixed">Random Pokémon</button>
-      </a>
-      </div>
-      
+    
 </div>
 {% endblock %}
 

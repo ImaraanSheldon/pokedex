@@ -1,26 +1,53 @@
 {% extends "nav.html" %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="card text-center">
-        <div class="card-header">
-            <h2>{{ pokemon.name }}</h2>
-        </div>
-        <div class="card-body">
-            <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="img-fluid" style="max-width: 200px;">
-            <p><strong>Entry No:</strong> {{ pokemon.entryNo }}</p>
-            <p><strong>Type:</strong> {{ pokemon.type }}</p>
-            <p><strong>Abilities:</strong> {{ pokemon.abilities }}</p>
-        </div>
-        <div class="card-footer">
-            <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Pokedex</a>
-        </div>
-    </div>
+<div class="statistics">
+    <div class="row">
 
-    <div>
-        <a href="{{ url_for('random_pokemon') }}">
-          <button class="position-fixed">Random Pokémon</button>
-      </a>
-      </div>
+        <div class="col-md-6 text-center">
+            <h2 class="text-center">Entry No.{{pokemon.entryNo}}:{{ pokemon.name }}</h2>
+            <div>
+                <img class="" src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="img-fluid" style="max-width: 400px;">
+            </div>
+            <p class=" mt-5">{{pokemon.descr}}</p>
+        </div>
+
+        <div class="col-md-6 text-start">
+            <p><strong>Type: &nbsp;</strong> {{ pokemon.type1, pokemon.type2 }}</p>
+            <p><strong>Abilities: &nbsp;</strong> {{ pokemon.ability }}</p>
+            <p><strong>Evolutions: &nbsp;</strong> {{ pokemon.evolutions }}</p>
+            <p><strong>Generation: &nbsp;</strong> {{ pokemon.generation }}</p>
+            <p><strong>Region: &nbsp;</strong>{{pokemon.region}}</p>
+            <p><strong>Abilities: &nbsp;</strong> {{ pokemon.ability }}</p>
+            <p><strong>Gender Ratio: &nbsp;</strong> {{ pokemon.genderRatioM }}/{{ pokemon.genderRatiof }}</p>
+
+            <div class="row">
+                <div class="col-6 text-start">
+                    <p><strong>Attack:</strong></p>
+                    <p><strong>Defense:</strong></p>
+                    <p><strong>Special Attack:</strong></p>
+                    <p><strong>Special Defense:</strong></p>
+                    <p><strong>Speed:</strong></p>
+                    
+                </div>
+                <div class="col-6 text-start">
+                    <p><strong>{{pokemon.attack}}</strong></p>
+                    <p><strong>{{pokemon.defense}}</strong></p>
+                    <p><strong>{{pokemon.specialAttack}}</strong></p>
+                    <p><strong>{{pokemon.specialDefense}}</strong></p>
+                    <p><strong>{{pokemon.speed}}</strong></p>
+                </div>
+            </div>
+
+            <div>
+                <a class="start fw-bold px-5 rounded-pill" href="{{ url_for('random_pokemon') }}">
+                   Another Pokémon?
+              </a>
+              </div>
+
+        </div>
+
+    </div>
 </div>
+
 {% endblock %}

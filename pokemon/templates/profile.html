@@ -1,32 +1,58 @@
-<!-- {% extends 'nav.html' %} -->
-
-{% block content %}
+{% extends 'nav.html' %} {% block content %}
+<div class="user-base">
+  <div class="text-center p-2 poop">
     <h1>Your Profile</h1>
-    <p><strong>Username:</strong> {{ user.user_name }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Username:</strong></p>
+    <p>{{ user.user_name }}</p>
+    <p><strong>Email:</strong></p>
+    <p>{{ user.email }}</p>
+  </div>
 
+  <div class="text-center p-2 poop">
     <!-- Update Form -->
     <h3>Update Your Information</h3>
     <form action="{{ url_for('update_profile') }}" method="POST">
-        <label for="user_name">Username</label>
-        <input type="text" id="user_name" name="user_name" value="{{ user.user_name }}" required><br><br>
+      <label for="user_name">Username</label>
+      <input
+        type="text"
+        id="user_name"
+        name="user_name"
+        value="{{ user.user_name }}"
+        required
+      /><br /><br />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="{{ user.email }}" required><br><br>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value="{{ user.email }}"
+        required
+      /><br /><br />
 
-        <button type="submit">Update</button>
+      <button type="submit">Update</button>
     </form>
+  </div>
 
+  <div class="text-center p-2 poop">
     <!-- Delete Account -->
     <h3>Delete Your Account</h3>
     <form action="{{ url_for('delete_account') }}" method="POST">
-        <label for="password">Enter Password to Confirm Deletion:</label>
-        <input type="password" id="password" name="password" required><br><br>
+      <label for="password">Enter Password to Confirm Deletion:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        required
+      /><br /><br />
 
-        <button type="submit" style="color: red;">Delete Account</button>
+      <button type="submit" style="color: red">Delete Account</button>
     </form>
+  </div>
 
-    <h3>Home</h3>
+  <div class="text-center p-5 poop">
+    <h3>Let's Check Out the Pokemon?</h3>
     <button><a href="{{url_for('home')}}">Home</a></button>
-
+  </div>
+</div>
 {% endblock %}
