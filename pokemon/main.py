@@ -3,7 +3,6 @@ import mysql.connector
 from forms import RegistrationForm, LoginForm
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 print("mysql.connector imported successfully!")
 app = Flask(__name__)
 
@@ -51,27 +50,21 @@ def new():
 def signUp():
     form = RegistrationForm()
     if form.validate_on_submit():
-        # Hash the password
         hashed_password = generate_password_hash(form.password.data, method='pbkdf2:sha256')
 
-        # Connect to the database
         conn = get_db_connection()
         cursor = conn.cursor()
-
-        # Insert data into the database
         cursor.execute('INSERT INTO users (user_name, email, password) VALUES (%s, %s, %s)', 
                        (form.username.data, form.email.data, hashed_password))
-
-        # Commit the transaction
         conn.commit()
-        
-        # Close the connection
         cursor.close()
         conn.close()
 
-        # Flash success message and redirect to home or login page
+        # Store the login source in the session
+        session['login_source'] = 'signup'
+
         flash('Account created successfully!', 'success')
-        return redirect(url_for('home')) # Or 'login' if you want to redirect to login page after signup
+        return redirect(url_for('profile'))  # Redirect to profile instead of home
     
     return render_template('signUp.html', title='Sign Up', form=form)
 
@@ -81,21 +74,21 @@ def login():
     form = LoginForm()
     
     if form.validate_on_submit():
-        # Connect to the database
         conn = get_db_connection()
-        cursor = conn.cursor(dictionary=True)  # Make sure to fetch rows as dictionaries
-        
-        # Query the database to get the user by email
+        cursor = conn.cursor(dictionary=True)
         cursor.execute('SELECT * FROM users WHERE email = %s', (form.email.data,))
-        user = cursor.fetchone()  # Fetch the user
+        user = cursor.fetchone()
 
         if user and check_password_hash(user['password'], form.password.data):
-            # If the password matches, store user info in the session
             session['user_id'] = user['user_id']
             session['user_name'] = user['user_name']
             session['email'] = user['email']
+
+            # Store the login source in the session
+            session['login_source'] = 'login'
+
             flash(f'Welcome {user["user_name"]}!', 'success')
-            return redirect(url_for('profile'))  # Or redirect to a user profile page
+            return redirect(url_for('profile'))  # Redirect to profile instead of home
 
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
@@ -105,13 +98,12 @@ def login():
 
     return render_template('login.html', title='Login', form=form)
 
-@app.route('/logout/')
+@app.route('/logout')
 def logout():
     session.pop('user_id', None)
     session.pop('user_email', None)
     flash('You have been logged out', 'info')
     return redirect(url_for('login'))
-
 
 @app.route('/profile/')
 def profile():
@@ -120,7 +112,6 @@ def profile():
         return redirect(url_for('login'))
     
     user_id = session['user_id']
-    # Fetch user details from the database
     conn = get_db_connection()
     cursor = conn.cursor(dictionary=True)
     cursor.execute('SELECT * FROM users WHERE user_id = %s', (user_id,))
@@ -128,7 +119,16 @@ def profile():
     cursor.close()
     conn.close()
 
-    return render_template('profile.html', user=user)  # Pass the user to the template
+    # Determine the flash message based on how the user arrived
+    if session.get('login_source') == 'signup':
+        flash('Your account has been created successfully!', 'success')
+    elif session.get('login_source') == 'login':
+        flash('You have logged in successfully!', 'success')
+
+    # Clear the session variable so the message only shows once
+    session.pop('login_source', None)
+
+    return render_template('profile.html', user=user)
 
 @app.route('/update_profile/', methods=['POST'])
 def update_profile():
