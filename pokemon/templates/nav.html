@@ -25,6 +25,15 @@
                     <a href="/"><img class="back_btn" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/back.png" alt="back"></a>
                 </div>
         </div>
+        <div class="row">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{category}}">{{message}}</div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+          </div>
         {% block content%}{% endblock %}
 
         <div class="footer" id="footer_id">
