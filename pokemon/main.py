@@ -213,6 +213,25 @@ def pokemon(name):
     
     return render_template('singular.html', pokemon=pokemon)
 
+@app.route('/random')
+def random_pokemon():
+    # Connect to the database
+    conn = get_db_connection()
+    cursor = conn.cursor(dictionary=True)
+    
+    # Fetch a random Pokémon
+    cursor.execute('SELECT * FROM pokemon ORDER BY RAND() LIMIT 1')
+    pokemon = cursor.fetchone()
+    
+    cursor.close()
+    conn.close()
+    
+    # Check if Pokémon exists
+    if not pokemon:
+        return "No Pokémon found", 404
+    
+    return render_template('random.html', pokemon=pokemon)
+    
 
 if __name__ == "__main__":
     app.run(debug = True)
