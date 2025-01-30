@@ -1,19 +1,18 @@
 {% extends "nav.html" %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="card text-center">
-        <div class="card-header">
-            <h2>{{ pokemon.name }}</h2>
+
+<div class="statistics">
+    <div class="row">
+        <div class="col-6">
+                <h2 class="text-center">{{ pokemon.name }}</h2>
+                <img class="" src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="img-fluid" style="max-width: 200px;">
         </div>
-        <div class="card-body">
-            <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="img-fluid" style="max-width: 200px;">
+
+        <div class="col-6">
             <p><strong>Entry No:</strong> {{ pokemon.entryNo }}</p>
-            <p><strong>Type:</strong> {{ pokemon.type }}</p>
-            <p><strong>Abilities:</strong> {{ pokemon.abilities }}</p>
-        </div>
-        <div class="card-footer">
-            <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Pokedex</a>
+            <p><strong>Type:</strong> {{ pokemon.type1, pokemon.type2 }}</p>
+            <p><strong>Abilities:</strong> {{ pokemon.ability }}</p>
         </div>
     </div>
 </div>
