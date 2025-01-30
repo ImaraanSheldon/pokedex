@@ -75,6 +75,9 @@ img {
 .back_btn {
   width: 120px;
 }
+.back_btnOne {
+  width: 40px;
+}
 .footer {
   position: relative;
   max-height: 9vh;
@@ -164,7 +167,7 @@ img {
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents tiling */
-  height: 650px;
+  height: 600px;
 }
 /* login css end */
 
@@ -174,7 +177,7 @@ img {
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents tiling */
-  height: 650px;
+  height: 600px;
 }
 /* sign css end */
 
