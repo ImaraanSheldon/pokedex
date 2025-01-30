@@ -6,22 +6,7 @@
         <!-- CSRF token -->
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
-            <legend class="border-bottom mt-4">Join Today</legend>
-
-            <!-- Username Field -->
-            <div class="form-group">
-                {{ form.username.label(class="form-control-label") }}
-                {% if form.username.errors %}
-                    {{ form.username(class='form-control form-control-lg is-invalid') }}
-                    <div class="invalid-feedback">
-                        {% for error in form.username.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.username(class="form-control form-control-lg") }}
-                {% endif %}
-            </div>
+            <legend class="border-bottom mt-4">Login</legend>
 
             <!-- Email Field -->
             <div class="form-group">
@@ -52,20 +37,9 @@
                     {{ form.password(class="form-control form-control-lg") }}
                 {% endif %}
             </div>
-
-            <!-- Confirm Password Field -->
-            <div class="form-group">
-                {{ form.confirm_password.label(class="form-control-label") }}
-                {% if form.confirm_password.errors %}
-                    {{ form.confirm_password(class='form-control form-control-lg is-invalid') }}
-                    <div class="invalid-feedback">
-                        {% for error in form.confirm_password.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.confirm_password(class="form-control form-control-lg") }}
-                {% endif %}
+            <div class="form-check">
+                {{form.remember(class="form-check-input")}}
+                {{form.remember.label(class="form-check-label")}}
             </div>
         </fieldset>
 
@@ -73,11 +47,14 @@
         <div class="form-group">
             {{ form.submit(class="btn btn-outline-info") }}
         </div>
+        <small class="text-muted ml-2">
+            <a href="#">Forgot Password?</a>
+        </small>
     </form>
 
     <div class="border-top pt-3">
         <small class="text-muted">
-            Already have an account? <a class="ml-2" href="{{ url_for('login') }}">Log In</a>
+            Don't have an account? <a class="ml-2" href="{{ url_for('signUp') }}">Sign Up Now</a>
         </small>
     </div>
 </div>
