@@ -1,61 +1,79 @@
 {% extends 'nav.html' %}
 
 {% block content %}
-<div class="section">
-    <form action="" method="POST">
-        <!-- CSRF token -->
-        {{ form.hidden_tag() }}
-        <fieldset class="form-group">
-            <legend class="border-bottom mt-4">Login</legend>
 
-            <!-- Email Field -->
-            <div class="form-group">
-                {{ form.email.label(class="form-control-label") }}
-                {% if form.email.errors %}
-                    {{ form.email(class='form-control form-control-lg is-invalid') }}
-                    <div class="invalid-feedback">
-                        {% for error in form.email.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
+    <!-- Music -->
+    <audio autoplay loop id="background-audio">
+        <source src="{{ url_for('static', filename='audio/Verdanturf.mp3') }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script src="{{ url_for('static', filename='js/audio.js') }}"></script>
+    <!-- Music End-->
+
+
+    <section class="box container">
+        <!-- <script src="{{ url_for('static', filename='js/fireflies.js') }}"></script> -->
+         <!-- <img class="login_img" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/login.png" alt="Login"> -->
+        <div class="row">
+            <div class="col-4"></div>
+             <div class="login-box col-4 mt-5 d-flex flex-column justify-content-center align-items-center">
+                <form class="text-center" action="" method="POST">
+                    <!-- CSRF token -->
+                    {{ form.hidden_tag() }}
+                    <fieldset class="form-group">
+            
+                        <!-- Email Field -->
+                        <div class="form-group">
+                            {{ form.email.label(class="form-control-label") }}
+                            {% if form.email.errors %}
+                                {{ form.email(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.email.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.email(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+            
+                        <!-- Password Field -->
+                        <div class="form-group">
+                            {{ form.password.label(class="form-control-label") }}
+                            {% if form.password.errors %}
+                                {{ form.password(class='form-control form-control-lg is-invalid') }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.password.errors %}
+                                        <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                            {% else %}
+                                {{ form.password(class="form-control form-control-lg") }}
+                            {% endif %}
+                        </div>
+                        <div class="form-check">
+                            {{form.remember(class="form-check-input")}}
+                            {{form.remember.label(class="form-check-label")}}
+                        </div>
+                    </fieldset>
+            
+                    <!-- Submit Button -->
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-info") }}
                     </div>
-                {% else %}
-                    {{ form.email(class="form-control form-control-lg") }}
-                {% endif %}
+                    <small class="text-muted ml-2">
+                        <a href="#">Forgot Password?</a>
+                    </small>
+                </form>
+            
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Don't have an account? <a class="ml-2" href="{{ url_for('signUp') }}">Sign Up Now</a>
+                    </small>
+                </div>
             </div>
 
-            <!-- Password Field -->
-            <div class="form-group">
-                {{ form.password.label(class="form-control-label") }}
-                {% if form.password.errors %}
-                    {{ form.password(class='form-control form-control-lg is-invalid') }}
-                    <div class="invalid-feedback">
-                        {% for error in form.password.errors %}
-                            <span>{{ error }}</span>
-                        {% endfor %}
-                    </div>
-                {% else %}
-                    {{ form.password(class="form-control form-control-lg") }}
-                {% endif %}
-            </div>
-            <div class="form-check">
-                {{form.remember(class="form-check-input")}}
-                {{form.remember.label(class="form-check-label")}}
-            </div>
-        </fieldset>
-
-        <!-- Submit Button -->
-        <div class="form-group">
-            {{ form.submit(class="btn btn-outline-info") }}
+            <div class="col-4"></div>
         </div>
-        <small class="text-muted ml-2">
-            <a href="#">Forgot Password?</a>
-        </small>
-    </form>
-
-    <div class="border-top pt-3">
-        <small class="text-muted">
-            Don't have an account? <a class="ml-2" href="{{ url_for('signUp') }}">Sign Up Now</a>
-        </small>
-    </div>
-</div>
+    </section>
 {% endblock %}
