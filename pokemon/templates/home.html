@@ -22,12 +22,12 @@
       {% endfor %}
     </div>
     <!-- Who's that pokemon -->
-    <div class="counter">
-        <div class="random position-sticky start fw-bold px-5 mb-5 text-center" style="top: 10px;">
+    <div class="counter d-flex justify-content-center">
+        <button class="random position-sticky start fw-bold px-5 mb-5 text-center" style="top: 10px;">
             <a href="{{ url_for('random_pokemon') }}">
                 Random Pokémon
             </a>
-        </div>
+        </button>
     </div>
     <div class="footer" id="footer_id">
         <div class="gif-container" id="gifContainer">

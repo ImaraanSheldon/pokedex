@@ -1,15 +1,49 @@
-{% extends "new.html" %}
+{% extends "nav.html" %}
 
 {% block content %}
 
-{% if pokemon %}
-    <div class="pokemon-info">
-        <h3>{{ pokemon.name }}</h3>
-        <p>Entry Number: {{ pokemon.entryNo }}</p>
-        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="pokemon-image">
-        <!-- Add more Pokémon details here as needed -->
-    </div>
-{% else %}
+<div class="statistics">
+    <div class="row">
+
+        {% if pokemon %}
+        <div class="col-md-6 text-center">
+            <h2 class="text-center">Entry No.{{pokemon.entryNo}}:{{ pokemon.name }}</h2>
+            <div>
+                <img class="" src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="img-fluid" style="max-width: 400px;">
+            </div>
+            <p class=" mt-5">{{pokemon.descr}}</p>
+        </div>
+
+        <div class="col-md-6 text-start">
+            <p><strong>Type: &nbsp;</strong> {{ pokemon.type1, pokemon.type2 }}</p>
+            <p><strong>Abilities: &nbsp;</strong> {{ pokemon.ability }}</p>
+            <p><strong>Evolutions: &nbsp;</strong> {{ pokemon.evolutions }}</p>
+            <p><strong>Generation: &nbsp;</strong> {{ pokemon.generation }}</p>
+            <p><strong>Region: &nbsp;</strong>{{pokemon.region}}</p>
+            <p><strong>Abilities: &nbsp;</strong> {{ pokemon.ability }}</p>
+            <p><strong>Gender Ratio: &nbsp;</strong> {{ pokemon.genderRatioM }}/{{ pokemon.genderRatiof }}</p>
+
+            <div class="row">
+                <div class="col-6 text-start">
+                    <p><strong>Attack:</strong></p>
+                    <p><strong>Defense:</strong></p>
+                    <p><strong>Special Attack:</strong></p>
+                    <p><strong>Special Defense:</strong></p>
+                    <p><strong>Speed:</strong></p>
+                    
+                </div>
+                <div class="col-6 text-start">
+                    <p><strong>{{pokemon.attack}}</strong></p>
+                    <p><strong>{{pokemon.defense}}</strong></p>
+                    <p><strong>{{pokemon.specialAttack}}</strong></p>
+                    <p><strong>{{pokemon.specialDefence}}</strong></p>
+                    <p><strong>{{ pokemon.speed }}</strong></p>
+                </div>
+            </div>
+
+        </div>
+
+        {% else %}
     <div class="no-results">
         
     <button><a href="{{url_for('home')}}">Home</a></button>
@@ -17,4 +51,10 @@
     </div>
 {% endif %}
 
+    </div>
+</div>
+
+
 {% endblock %}
+
+

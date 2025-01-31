@@ -22,14 +22,18 @@
         <div class="navi row">
             <div class="row main-Nav d-flex justify-content-between">
                 <div class="logo1 col">
-                    <div class="logo">
-                        <img src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/logo.png" alt="logo">
-                    </div>
+                    <a href="{{ url_for('profile') }}">
+                        <div class="logos">
+                            <img src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/logo.png" alt="logo">
+                        </div>
+                    </a>
                 </div>
                 <div class="logo2 col">
-                    <div id="logo_navCenter">
-                        <img src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/center-mainNav.png" alt="logo">
-                    </div>
+                    <a href="{{ url_for('home') }}">
+                        <div id="logo_navCenter">
+                            <img src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/center-mainNav.png" alt="logo">
+                        </div>
+                    </a>
                 </div>
                 <div class="logo3 col">
                     <div class="col-4 text-end mt-1">
@@ -39,7 +43,9 @@
             </div>
                 <idv class="row sub-Nav">
                     <div class="col-4 text-start mt-3">
-                        <img class="pokeball_logo" src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/Who_s_that_Pokemon_-removebg-preview-transformed.png">
+                        <a href="{{url_for('random_pokemon')}}">
+                            <img class="pokeball_logo" src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/Who_s_that_Pokemon_-removebg-preview-transformed.png">
+                        </a>
                     </div>
                     <div class="col-4 text-center mt-3">
                         
@@ -47,7 +53,7 @@
                     <div class="col-4 text-end mt-1">
                         <form action="{{ url_for('search') }}" method="GET">
                             <input type="text" name="name" placeholder="Search" class=" search" required>
-                            <button type="submit" class="btn btn-primary mt-2">Search</button>
+                            <button type="submit" class="btn btn-light p-1">Search</button>
                         </form>
                     </div>
                     
