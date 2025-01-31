@@ -231,7 +231,27 @@ def random_pokemon():
         return "No Pokémon found", 404
     
     return render_template('random.html', pokemon=pokemon)
+
+@app.route('/search', methods=['GET'])
+def search():
+    search_term = request.args.get('name')  # Fetch the search query from the input field
     
+    if search_term:
+        # Connect to the database
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+        
+        # Search for the Pokémon by name
+        cursor.execute('SELECT * FROM pokemon WHERE name LIKE %s', ('%' + search_term + '%',))
+        pokemon = cursor.fetchone()
+        
+        cursor.close()
+        conn.close()
+        
+        # Return the result to the 'search.html' page
+        return render_template('search.html', pokemon=pokemon)
+    
+    return render_template('search.html', pokemon=None)  # No search query, show blank page or instructions    
 
 if __name__ == "__main__":
     app.run(debug = True)

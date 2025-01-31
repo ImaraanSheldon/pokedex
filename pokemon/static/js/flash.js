@@ -1,4 +1,4 @@
 setTimeout(function () {
     $(".alert").fadeOut("slow");
-  }, 5000); // 5000ms = 5 seconds
+  }, 4000); // 4000ms = 4 seconds
 

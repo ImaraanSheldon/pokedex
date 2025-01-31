@@ -1,0 +1,20 @@
+{% extends "new.html" %}
+
+{% block content %}
+
+{% if pokemon %}
+    <div class="pokemon-info">
+        <h3>{{ pokemon.name }}</h3>
+        <p>Entry Number: {{ pokemon.entryNo }}</p>
+        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" class="pokemon-image">
+        <!-- Add more Pokémon details here as needed -->
+    </div>
+{% else %}
+    <div class="no-results">
+        
+    <button><a href="{{url_for('home')}}">Home</a></button>
+        <img src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/404_page_design_-_enwebo_agency-transformed.jpeg" alt="">
+    </div>
+{% endif %}
+
+{% endblock %}

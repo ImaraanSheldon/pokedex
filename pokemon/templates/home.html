@@ -5,13 +5,7 @@
 
 {% block content %}
 <!-- Don't put any images within the same div inside columns, they will feel very uncomfortable. -->
-<div class="counter">
-    <div class="random position-sticky start fw-bold px-5 mb-5 text-center" style="top: 10px;">
-        <a href="{{ url_for('random_pokemon') }}">
-            Random Pokémon
-        </a>
-    </div>
-</div>
+
 
 <div class="books">
     <div class="d-flex">
@@ -27,7 +21,20 @@
       </a>
       {% endfor %}
     </div>
-    
+    <!-- Who's that pokemon -->
+    <div class="counter">
+        <div class="random position-sticky start fw-bold px-5 mb-5 text-center" style="top: 10px;">
+            <a href="{{ url_for('random_pokemon') }}">
+                Random Pokémon
+            </a>
+        </div>
+    </div>
+    <div class="footer" id="footer_id">
+        <div class="gif-container" id="gifContainer">
+            <img src="/static/images/Chespin.gif" alt="Moving GIF">
+        </div>
+        <script src="{{ url_for('static', filename='js/animation.js') }}"></script>
+    </div>
 </div>
 {% endblock %}
 

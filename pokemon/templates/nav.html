@@ -20,15 +20,38 @@
 <body>
     <section>
         <div class="navi row">
-                <div class="col-4 text-start mt-3">
-                    <img class="pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
+            <div class="row main-Nav d-flex justify-content-between">
+                <div class="logo1 col">
+                    <div class="logo">
+                        <img src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/logo.png" alt="logo">
+                    </div>
                 </div>
-                <div class="col-4 text-center mt-3">
-                    <img class="pokeball_logo" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/Pokeball_logo.png">
+                <div class="logo2 col">
+                    <div id="logo_navCenter">
+                        <img src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/center-mainNav.png" alt="logo">
+                    </div>
                 </div>
-                <div class="col-4 text-end mt-1">
-                    <a href="/"><img class="back_btn" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/back.png" alt="back"></a>
+                <div class="logo3 col">
+                    <div class="col-4 text-end mt-1">
+                        <a href="/"><img class="back_btn" src="https://imaraansheldon.github.io/Pokemon/Pokemon_Images/back.png" alt="back"></a>
+                    </div>
                 </div>
+            </div>
+                <idv class="row sub-Nav">
+                    <div class="col-4 text-start mt-3">
+                        <img class="pokeball_logo" src="https://chandre-leigh-davids-2.github.io/pokedex_images/Pokedex-images/Who_s_that_Pokemon_-removebg-preview-transformed.png">
+                    </div>
+                    <div class="col-4 text-center mt-3">
+                        
+                    </div>
+                    <div class="col-4 text-end mt-1">
+                        <form action="{{ url_for('search') }}" method="GET">
+                            <input type="text" name="name" placeholder="Search" class=" search" required>
+                            <button type="submit" class="btn btn-primary mt-2">Search</button>
+                        </form>
+                    </div>
+                    
+                </idv>
         </div>
         <div class="row">
             {% with messages = get_flashed_messages(with_categories=True) %}
@@ -43,13 +66,9 @@
           </div>
         {% block content%}{% endblock %}
 
-        <div class="footer" id="footer_id">
-            <div class="gif-container" id="gifContainer">
-                <img src="/static/images/Chespin.gif" alt="Moving GIF">
-            </div>
-            <script src="{{ url_for('static', filename='js/animation.js') }}"></script>
-        </div>
+        
     </section>
 
+    <script src="../static/js/flash.js"></script>
 </body>
 </html>

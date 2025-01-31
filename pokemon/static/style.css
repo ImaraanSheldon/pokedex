@@ -9,7 +9,7 @@ font-family: "Orbitron", serif;
 section {
   min-width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
   /* Whenever we do a new page we put everything inside the html a section...don't try and be special, please <3 */
 }
 img {
@@ -65,10 +65,43 @@ img {
 
 /* Nav Css */
 .navi {
-  max-height: 8vh;
   min-width: 100vw;
   overflow: hidden;
-  background-color: #fff6df;
+  border-bottom: 3px solid rgb(123, 93, 67);
+}
+.main-Nav{
+  background-image: url('https://imaraansheldon.github.io/Pokemon/Pokemon_Images/wood.jpg');
+  height: 10vh;
+}
+.sub-Nav{
+  background-color: #B19276;
+}
+.logo{
+  width: 50px;
+  height: 50px;
+}
+#logo_navCenter{
+  width: 80px;
+  min-height: 7vh;
+}
+.logo img{
+  width: 100%;
+  height: 100%;
+}
+.logo1{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo3{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .pokeball_logo {
   width: 32px;
@@ -79,18 +112,28 @@ img {
 .back_btnOne {
   width: 40px;
 }
+.search{
+  width: 10vw;
+}
+.no-results{
+  height: 98vh;
+  width: 100vw;
+}
+.no-results  img{
+  height: 100%;
+  width: 100%;
+}
 .footer {
   position: relative;
   max-height: 9vh;
   max-width: 100vw;
   /* overflow: hidden; */
-  background-color: #fff6df;
+  background-image: url('https://imaraansheldon.github.io/Pokemon/Pokemon_Images/wood.jpg');
 }
 .gif-container {
   position: absolute;
   transform: translateY(-50%);
-  width: 0; /* Adjust based on your GIF size */
-  background-color: #fff6df;
+  width: 0; /* Adjust based on your GIF size */background-image: url('https://imaraansheldon.github.io/Pokemon/Pokemon_Images/wood.jpg');
   /* will need a z-index later, trust me */
 }
 
@@ -115,15 +158,15 @@ img {
 }
 
 .books {
-  background-image: url("https://imaraansheldon.github.io/Pokemon/Pokemon_Images/wood.jpg"); /* Replace with your image path */
+  background-image: url("https://imaraansheldon.github.io/Pokemon/Pokemon_Images/tree.jpg"); /* Replace with your image path */
   background-size: cover; /* Ensures the image covers the entire container */
   background-position: center; /* Centers the image */
   background-repeat: no-repeat; /* Prevents tiling */
   height: 100%;
 
-  max-height: 92vh;
+  min-height: 92vh;
   max-width: 100vw;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   overflow-x: auto;
   /* background-color: #c27662; */
 }
